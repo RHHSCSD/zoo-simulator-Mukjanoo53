@@ -8,41 +8,33 @@ package zoosim;
  *
  * @author Mukarram
  */
-public class WaterAnimal extends Animal implements ISwimmable{
+// Defines a WaterAnimal class that inherits from Animal and must implement the behaviors defined in the ISwimmable interface.
+public class WaterAnimal extends Animal implements ISwimmable {
+    // A specific property for water animals indicating whether they can breathe underwater.
     boolean canBreathe;
-
-    @Override
-    public void move() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    int height;
+    
+    // Constructor that initializes a WaterAnimal object with its basic characteristics and the ability to breathe underwater.
+    public WaterAnimal(String name, String species, char sex, int speed, int age, String sound) {
+        // Calls the constructor of the superclass (Animal) to set common attributes.
+        super(name, species, sex, speed, age, sound);
+        // Sets the canBreathe property specific to WaterAnimal instances.
+        this.canBreathe = true;
     }
 
+    // Implements the canSwim method from the ISwimmable interface. 
+    // Indicates that the animal can swim and modifies its height attribute to represent being underwater.
     @Override
-    public void makeSound() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean canSwim() {
+        height = -1; // Height represents the animal's depth underwater
+        return true; // Always returns true, indicating that WaterAnimal instances can swim.
     }
 
-    @Override
-    public void eat() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void sleep() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void turn(int degrees) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void place(int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    // Implements the canSurface method from the ISwimmable interface.
+    // Indicates that the animal can come to the water's surface.
     @Override
     public boolean canSurface() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        height = 0; // Sets the height to 0, indicating the surface level of the water.
+        return true; // Always returns true, indicating that WaterAnimal instances can surface.
     }
 }

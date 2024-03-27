@@ -8,9 +8,17 @@ package zoosim;
  *
  * @author Mukarram
  */
-public interface IEntity extends IObject{
- public void move();
- public void makeSound();
- public void eat();
- public void sleep();
+// Defines an interface for entities, extending the capabilities of IObject to include common behaviors.
+public interface IEntity extends IObject {
+    // Method for moving the entity. 
+    public void move();
+
+    // Method for producing sound. 
+    public void makeSound();
+
+    // Method for eating. 
+    public void eat();
+
+    // Method for sleeping.
+    public void sleep();
 }

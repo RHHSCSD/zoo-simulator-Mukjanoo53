@@ -8,51 +8,34 @@ package zoosim;
  *
  * @author Mukarram
  */
-public class BirdAnimal extends Animal implements IFlyable{
-    boolean canFly;
-
-    @Override
-    public void move() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+// Defines a class for bird animals, extending the Animal class and implenting the IFlyable interface.
+public class BirdAnimal extends Animal implements IFlyable {
+    boolean canFly; // Indicates whether the bird can fly.
+    int height; // Tracks the current flying height of the bird.
+    
+    // Constructor for BirdAnimal, initializing it with attributes specific to birds and the ability to fly
+    public BirdAnimal(String name, String species, char sex, int age, int speed, String sound) {
+        super(name, species, sex, speed, age, sound); // Call to the superclass constructor to initialize common attributes.
+        this.canFly = true; // Assuming all instances of BirdAnimal can fly by default.
     }
 
-    @Override
-    public void makeSound() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void eat() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void sleep() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void turn(int degrees) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void place(int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    // Implements the fly method from the IFlyable interface.
     @Override
     public void fly() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (canFly) {
+            height = 1; // Sets a simple representation of being in flight. 
+        }
     }
 
+    // Implements the land method from the IFlyable interface.
     @Override
     public void land() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        height = 0; // Resets height to 0, indicating landing.
     }
 
+    // Implements the isFlying method from the IFlyable interface.
     @Override
     public boolean isFlying() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return height > 0; // If height is greater than 0, the bird is considered to be flying.
     }
 }
